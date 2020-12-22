@@ -1,8 +1,15 @@
-<div class="container-fluid">
-  <div class="bookmarks-container">
-
-    <div>
-      <h3>Favoritos</h3>
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-md-12 col-lg-6">
+      <h4>
+        <fa-icon [icon]="faBookmark"></fa-icon>
+        Favoritos:
+      </h4>
+      <div class="form-group mb-3">
+        <label>Adicionar cidade aos favoritos:</label>
+        <jv-cities-typeahead
+          [formControl]="searchTypeaheadControl"></jv-cities-typeahead>
+      </div>
 
       <div *ngIf="!(bookmarks$ | async).length">Nenhum favorito adicionado</div>
 
@@ -16,13 +23,6 @@
                   (click)="removeBookmark(bookmark.id)">X</button>
         </li>
       </ul>
-
     </div>
-
-    <div>
-      <label>Adicionar cidade aos favoritos</label>
-      <jv-cities-typeahead [formControl]="searchTypeaheadControl"></jv-cities-typeahead>
-    </div>
-
   </div>
 </div>

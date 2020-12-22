@@ -12,6 +12,7 @@ import { HomeEffects } from './state/home.effects';
 import { ComponentsModule } from 'src/app/shared/components/components.module';
 import { CurrentWeatherComponent } from './components/current-weather/current-weather.component';
 import { UnitSelectorComponent } from './containers/unit-selector/unit-selector.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { UnitSelectorComponent } from './containers/unit-selector/unit-selector.
     StoreModule.forFeature('home', homeReducer),
     EffectsModule.forFeature([HomeEffects]),
     ComponentsModule,
+    FontAwesomeModule
   ],
   declarations: [
     HomePage,

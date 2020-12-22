@@ -3,6 +3,8 @@ import { Component, OnInit } from "@angular/core";
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
+import { faThermometerEmpty } from '@fortawesome/free-solid-svg-icons';
+
 import { AppState } from 'src/app/shared/state/app.reducer';
 import { Units } from 'src/app/shared/models/units.enum';
 import * as fromConfigSelectors from '../../../../shared/state/config/config.selectors';
@@ -19,6 +21,8 @@ export class UnitSelectorComponent implements OnInit {
   unit: Units;
 
   unitsEnum = Units;
+
+  faThermometerEmpty = faThermometerEmpty;
 
   constructor(private store: Store<AppState>) {
   }

@@ -1,14 +1,22 @@
-<div>
-  <span>Unidade:</span>
-  <ul class="list-inline">
-    <li class="list-inline-item" (click)="updateUnit(unitsEnum.Metric)">
-      <a class="badge" [ngClass]="unit === unitsEnum.Metric ? 'badge-primary' : 'badge-dark'">˚C</a>
-    </li>
-    <li class="list-inline-item" (click)="updateUnit(unitsEnum.Imperial)">
-      <a class="badge" [ngClass]="(unit$ | async) === unitsEnum.Imperial ? 'badge-primary' : 'badge-dark'">˚F</a>
-    </li>
-    <li class="list-inline-item" (click)="updateUnit(unitsEnum.SI)">
-      <a class="badge" [ngClass]="(unit$ | async) === unitsEnum.SI ? 'badge-primary' : 'badge-dark'">K</a>
-    </li>
-  </ul>
-</div>
+<span class="navbar-text">
+  <span class="mr-2">
+    <fa-icon [icon]="faThermometerEmpty"></fa-icon>
+  </span>
+  <button
+    class="btn mr-2"
+    type="button"
+    [ngClass]="unit === unitsEnum.Metric ? 'btn-dark' : 'btn-outline-dark'"
+    (click)="updateUnit(unitsEnum.Metric)">˚C</button>
+
+  <button
+    class="btn mr-2"
+    type="button"
+    [ngClass]="unit === unitsEnum.Imperial ? 'btn-dark' : 'btn-outline-dark'"
+    (click)="updateUnit(unitsEnum.Imperial)">˚F</button>
+
+  <button
+    class="btn mr-2"
+    type="button"
+    [ngClass]="unit === unitsEnum.SI ? 'btn-dark' : 'btn-outline-dark'"
+    (click)="updateUnit(unitsEnum.SI)">K</button>
+</span>

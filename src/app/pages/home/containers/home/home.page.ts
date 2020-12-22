@@ -6,6 +6,8 @@ import { select, Store } from '@ngrx/store';
 import { Observable, Subject, combineLatest } from 'rxjs';
 import { takeUntil, map } from 'rxjs/operators';
 
+import { faSearchLocation } from '@fortawesome/free-solid-svg-icons';
+
 import { CityWeather } from 'src/app/shared/models/weather.model';
 import { Bookmark } from 'src/app/shared/models/bookmark.model';
 import { CityTypeaheadItem } from 'src/app/shared/models/city-typeahead-item.model';
@@ -36,6 +38,8 @@ export class HomePage implements OnInit, OnDestroy {
 
   unit$: Observable<Units>;
 
+  faSearchLocation = faSearchLocation;
+
   private componentDestroyed$ = new Subject();
 
   private portalOutlet: PortalOutlet;
@@ -49,7 +53,7 @@ export class HomePage implements OnInit, OnDestroy {
   ngOnInit() {
     this.searchControl = new FormControl('', Validators.required);
     this.searchControlWithAutocomplete = new FormControl(undefined);
-    
+
     this.searchControlWithAutocomplete.valueChanges
       .pipe(takeUntil(this.componentDestroyed$))
       .subscribe((value: CityTypeaheadItem) => {

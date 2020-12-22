@@ -1,18 +1,24 @@
-<div class="weather-details">
-
-  <div class="weather-icon">
+<div class="row text-center">
+  <div class="col-sm-12 col-md-6 align-middle">
+    <h3>
+      <fa-icon [icon]="faTemperatureHigh"> </fa-icon>
+      {{ weather.temp }} {{ unitSymbol }}
+    </h3>
     <img [src]="weatherIcon">
-    <span>{{ weather.description }}</span>
+    <p>{{ weather.description }}</p>
   </div>
-
-  <div class="weather-temp">
-    <h3>{{ weather.temp }} {{ unitSymbol }}</h3>
-    <span>Sensação térmica: {{ weather.feelsLike }} {{ unitSymbol }}</span>
+  <div class="col-sm-12 col-md-6 align-middle">
+    <p>
+      <fa-icon [icon]="faTint"> </fa-icon>
+      Umidade: {{ weather.humidity }}%
+    </p>
+    <p>
+      <fa-icon [icon]="faThermometerHalf"> </fa-icon>
+      Sensação térmica: {{ weather.feelsLike }} {{ unitSymbol }}
+    </p>
+    <p>
+      <fa-icon [icon]="faWind"> </fa-icon>
+      Velocidade do vento: {{ weather.wind.speed }} m/s
+    </p>
   </div>
-
-  <div class="weather-misc">
-    <div>Humidade: {{ weather.humidity }}%</div>
-    <div>Velocidade do vento: {{ weather.wind.speed }} m/s</div>
-  </div>
-
 </div>

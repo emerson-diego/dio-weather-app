@@ -1,20 +1,37 @@
-<div class="card">
-  <span class="badge badge-secondary">{{ date | uppercase }}</span>
-
-  <div>
-    <div>
-      <img [src]="icon">
-    </div>
-
-    <div>
-      <div>{{ weather.minTemp }} {{ unitSymbol }} - {{ weather.maxTemp }} {{ unitSymbol }}</div>
-      <div>Humidade: {{ weather.humidity }} %</div>
-      <div>Velocidade do vento: {{ weather.wind.speed }} m/s</div>
-    </div>
-
-    <div>
-      <div>Nascer do sol: {{ unixToHourMinute(weather.sunrise) }}</div>
-      <div>Pôr do sol: {{ unixToHourMinute(weather.sunset) }}</div>
+<div class="row mt-3 justify-content-md-center">
+  <div class="col-md-12 col-lg-8">
+    <div class="card">
+      <div class="card-body">
+        <span class="badge badge-secondary">{{ date | uppercase }}</span>
+        <div class="row">
+          <div class="col-sm-12 col-md-6 align-middle">
+            <h5 class="mt-3">
+              <fa-icon [icon]="faTemperatureHigh"> </fa-icon>
+              {{ weather.minTemp }} {{ unitSymbol }} ~ {{ weather.maxTemp }} {{ unitSymbol }}
+            </h5>
+            <img [src]="icon">
+            <p>{{ weather.description }}</p>
+          </div>
+          <div class="col-sm-12 col-md-6 align-middle">
+            <p>
+              <fa-icon [icon]="faTint"> </fa-icon>
+              Umidade: {{ weather.humidity }}%
+            </p>
+            <p>
+              <fa-icon [icon]="faWind"> </fa-icon>
+              Velocidade do vento: {{ weather.wind.speed }} m/s
+            </p>
+            <p>
+              <fa-icon [icon]="faSun"> </fa-icon>
+              Nascer do sol: {{ unixToHourMinute(weather.sunrise) }}
+            </p>
+            <p>
+              <fa-icon [icon]="faMoon"> </fa-icon>
+              Pôr do sol: {{ unixToHourMinute(weather.sunset) }}
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

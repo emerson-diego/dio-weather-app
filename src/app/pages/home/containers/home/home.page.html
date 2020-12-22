@@ -1,35 +1,45 @@
-<div class="container-fluid">
-
-  <div class="search-container">
-
-    <div class="form-group">
-      <label>Pesquisar</label>
-      <div>
-        <input class="form-control" [formControl]="searchControl">
-        <button class="btn btn-dark"
-                [disabled]="!searchControl.valid"
-                (click)="doSearch()">Pesquisar</button>
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-md-12 col-lg-6">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Pesquisar cidade"
+          [formControl]="searchControl"
+        >
+        <button
+          type="button"
+          class="btn btn-outline-primary"
+          (click)="doSearch()"
+          [disabled]="!searchControl.valid"
+        ><fa-icon [icon]="faSearchLocation"></fa-icon> Pesquisar</button>
       </div>
     </div>
-
-    <div class="form-group">
-      <label>Pesquisar com <i>autocomplete</i></label>
-      <jv-cities-typeahead [formControl]="searchControlWithAutocomplete"></jv-cities-typeahead>
+    <div class="col-md-12 col-lg-6">
+      <div class="form-group">
+        <jv-cities-typeahead [formControl]="searchControlWithAutocomplete"></jv-cities-typeahead>
+      </div>
     </div>
-
   </div>
-
-  <jv-loader *ngIf="loading$ | async"></jv-loader>
-
-  <div *ngIf="!(loading$ | async) && !(error$ | async) && !!cityWeather">
-    <jv-current-weather [cityWeather]="cityWeather"
-                        [isFavorite]="isCurrentFavorite$ | async"
-                        [unit]="unit$ | async"
-                        (toggleBookmark)="onToggleBookmark()"></jv-current-weather>
+  <div class="row mt-3 justify-content-md-center">
+    <div class="col">
+      <jv-loader *ngIf="loading$ | async"></jv-loader>
+    </div>
   </div>
+  <div class="row mt-3 justify-content-md-center">
+    <div class="col-md-12 col-lg-8">
+      <div *ngIf="!(loading$ | async) && !(error$ | async) && !!cityWeather">
 
-  <div *ngIf="!(loading$ | async) && error$ | async">
-    <a>Tentar novamente</a>
+        <jv-current-weather [cityWeather]="cityWeather"
+                            [isFavorite]="isCurrentFavorite$ | async"
+                            [unit]="unit$ | async"
+                            (toggleBookmark)="onToggleBookmark()"></jv-current-weather>
+      </div>
+
+      <div *ngIf="!(loading$ | async) && error$ | async">
+        <a>Tentar novamente</a>
+      </div>
+    </div>
   </div>
-
 </div>

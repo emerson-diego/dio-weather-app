@@ -5,6 +5,8 @@ import { select, Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
+import { faBookmark } from '@fortawesome/free-regular-svg-icons';
+
 import { BookmarksState } from '../../state/bookmarks.reducer';
 import { Bookmark } from 'src/app/shared/models/bookmark.model';
 import { CityTypeaheadItem } from 'src/app/shared/models/city-typeahead-item.model';
@@ -19,6 +21,8 @@ import * as fromBookmarksActions from '../../state/bookmarks.actions';
 export class BookmarksPage implements OnInit, OnDestroy {
 
   bookmarks$: Observable<Bookmark[]>;
+
+  faBookmark = faBookmark;
 
   searchTypeaheadControl = new FormControl(undefined);
 

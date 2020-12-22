@@ -10,6 +10,7 @@ import { BookmarksPage } from './containers/bookmarks/bookmarks.page';
 import { bookmarkReducer } from './state/bookmarks.reducer';
 import { ComponentsModule } from 'src/app/shared/components/components.module';
 import { BookmarksEffects } from './state/bookmarks.effects';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { BookmarksEffects } from './state/bookmarks.effects';
     StoreModule.forFeature('bookmarks', bookmarkReducer),
     EffectsModule.forFeature([BookmarksEffects]),
     ComponentsModule,
+    FontAwesomeModule
   ],
   declarations: [
     BookmarksPage,

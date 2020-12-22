@@ -11,6 +11,7 @@ import { detailsReducer } from './state/details.reducer';
 import { DetailsEffects } from './state/details.effects';
 import { ComponentsModule } from 'src/app/shared/components/components.module';
 import { DailyWeatherComponent } from './components/daily-weather/daily-weather.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { DailyWeatherComponent } from './components/daily-weather/daily-weather.
     StoreModule.forFeature('details', detailsReducer),
     EffectsModule.forFeature([DetailsEffects]),
     ComponentsModule,
+    FontAwesomeModule
   ],
   declarations: [
     DetailsPage,

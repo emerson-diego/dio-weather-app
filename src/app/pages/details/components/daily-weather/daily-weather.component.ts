@@ -6,6 +6,14 @@ import { DailyWeather, Weather } from 'src/app/shared/models/weather.model';
 import { Units } from 'src/app/shared/models/units.enum';
 import { unitToSymbol } from 'src/app/shared/utils/units.utils';
 
+import {
+  faTemperatureHigh,
+  faTint,
+  faWind,
+  faSun,
+  faMoon
+} from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'jv-daily-weather',
   templateUrl: 'daily-weather.component.html',
@@ -17,6 +25,12 @@ export class DailyWeatherComponent {
   @Input() dailyWeather: DailyWeather;
   @Input() timeZone: string;
   @Input() unit: Units;
+
+  faTemperatureHigh = faTemperatureHigh;
+  faTint = faTint;
+  faWind = faWind;
+  faSun = faSun;
+  faMoon = faMoon;
 
   get weather(): Weather {
     return this.dailyWeather.weather;
